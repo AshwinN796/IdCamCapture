@@ -1,0 +1,3 @@
+rootProject.name = "IdCamCapture"
+include ':app'
+include ':idcamcapture'
