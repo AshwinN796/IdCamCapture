@@ -1,6 +1,8 @@
 # IdCamCapture
 Android IdCamCapture
 
+**Note：** Camera only open in PORTRAIT ORIENTATION.
+
 ## Features
 - Open Front Camera to capture face
 - Get Captured result with or without cropping
