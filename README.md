@@ -1,5 +1,5 @@
-# KYCCamera
-Android Custom KYC Camera
+# IdCamCapture
+Android IdCamCapture
 
 ## Features
 - Open Front Camera to capture face
@@ -24,7 +24,7 @@ allprojects {
 ### Step 2. Add a gradle dependency
 ```java
 dependencies {
-	        implementation 'com.github.Gauravhulmukh:KYCCamera:v1.1'
+	        implementation 'com.github.AshwinN796:IdCamCapture:v1.0.0'
 	}
 ```
 
