@@ -1,7 +1,12 @@
 package com.kknirmale.idcamcapture.camera;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraManager;
 
 import androidx.fragment.app.Fragment;
 
@@ -67,5 +72,16 @@ public class KYCCamera {
             return data.getStringExtra(IMAGE_PATH);
         }
         return "";
+    }
+
+    public static boolean hasFrontCamera(Context context) {
+        CameraManager cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+        try {
+            String frontCameraId = cameraManager.getCameraIdList()[1];
+            return frontCameraId != null;
+        }catch (CameraAccessException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

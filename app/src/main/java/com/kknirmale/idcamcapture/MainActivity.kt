@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kknirmale.idcamcapture.camera.KYCCamera
 
@@ -29,7 +30,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun captureFrontFace(view: View) {
-        KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_FACE_WO_CROP)
+        if (KYCCamera.hasFrontCamera(this)) {
+            KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_FACE_WO_CROP)
+        }else {
+            Toast.makeText(this,"Front camera not found",Toast.LENGTH_LONG).show()
+        }
     }
 
     fun captureIDWOCrop(view: View) {

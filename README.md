@@ -26,24 +26,24 @@ allprojects {
 ### Step 2. Add a gradle dependency
 ```java
 dependencies {
-	        implementation 'com.github.AshwinN796:IdCamCapture:v1.0.0'
+	        implementation 'com.github.AshwinN796:IdCamCapture:v1.0.1'
 	}
 ```
 
 ### Step 3. Open photographic interface
-- Front facing camera without crop
-```java
-KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_FACE_WO_CROP);
-```
-
 - ID Capture without crop
 ```java
+KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_ID_WO_CROP);
+```
+
+- Capture face without crop
+```java
 KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_FACE_WO_CROP);
 ```
 
-- Front side of Pan Card
+- Capture face with Crop
 ```java
-KYCCamera.create(this).openCamera(KYCCamera.TYPE_PANCARD_FRONT);
+KYCCamera.create(this).openCamera(KYCCamera.TYPE_CAPTURE_FACE_FRONT);
 ```
 **notice：** The parameters of the create() method are passed the context, activity.this is passed in Activity, and fragment.this is passed in Fragment.
 
@@ -56,7 +56,7 @@ KYCCamera.create(this).openCamera(KYCCamera.TYPE_PANCARD_FRONT);
             //Get image path，display image
             final String path = KYCCamera.getImagePath(data);
             if (!TextUtils.isEmpty(path)) {
-                if (requestCode == KYCCamera.TYPE_AADHAARCARD_FRONT) { //Front of AADHAAR card
+                if (requestCode == KYCCamera.TYPE_CAPTURE_ID_WO_CROP) { //Front of AADHAAR card
 
                 } else if (requestCode == KYCCamera.TYPE_CAPTURE_FACE_WO_CROP) {  //Front capture without crop
 
